@@ -24,10 +24,10 @@ class CategoryTabWidget extends StatelessWidget {
                 fontWeight: FontWeight.w700,
                 color: Colors.white60),
           ),
-          Expanded(
-            child: GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, crossAxisSpacing: 12),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.1,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) => InkWell(
                   onTap: () {
                     clickedCategory(allCategories[index]);
@@ -36,7 +36,7 @@ class CategoryTabWidget extends StatelessWidget {
                       catItem: allCategories[index], index: index)),
               itemCount: allCategories.length,
             ),
-          )
+          ),
         ],
       ),
     );

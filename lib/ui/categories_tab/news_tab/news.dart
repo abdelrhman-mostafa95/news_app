@@ -57,12 +57,19 @@ class NewsContent extends StatelessWidget {
                 Uri uri = Uri.parse(news!.url ?? '');
                 if (await canLaunchUrl(uri)) launchUrl(uri);
               },
-              child: Text(
-                'To full Articale',
-                style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'To full Articale',
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFF5cb6bd)  ),
+                  ),
+                  SizedBox(width: 10,),
+                  Icon(Icons.next_plan_outlined, color: Color(0xFF5cb6bd),)
+                ],
               ),
             )
           ],

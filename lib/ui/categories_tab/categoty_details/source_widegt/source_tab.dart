@@ -27,7 +27,7 @@ class _SourceTabState extends State<SourceTab> {
                 selectedIndex = index;
                 setState(() {});
               },
-              indicatorColor: Colors.transparent,
+              indicatorColor: Color(0xFF5cb6bd),
               dividerColor: Colors.transparent,
               isScrollable: true,
               tabs: widget.sourceList

@@ -21,11 +21,49 @@ class NewsItemWidegt extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                  clipBehavior: Clip.antiAlias,
-                  decoration:
-                      BoxDecoration(borderRadius: BorderRadius.circular(20)),
-                  child: Image.network(news.urlToImage ?? '')),
+              Stack(
+                alignment: Alignment.bottomLeft,
+                children: [
+                  Stack(
+                    children: [
+                      Container(
+                        height: MediaQuery.of(context).size.height * 0.3,
+                        width: MediaQuery.of(context).size.width * 1,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(35),
+                            image: DecorationImage(
+                                image: NetworkImage(news.urlToImage ?? ''),
+                                fit: BoxFit.fill)),
+                      ),
+                      Positioned(
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        child: Container(
+                          padding: const EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [Colors.transparent, Colors.transparent],
+                              begin: Alignment.bottomCenter,
+                              end: Alignment.topCenter,
+                            ),
+                          ),
+                          child: Text(
+                            news.title ?? '',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ],
+              ),
               SizedBox(
                 height: 12,
               ),
@@ -39,16 +77,9 @@ class NewsItemWidegt extends StatelessWidget {
                           fontWeight: FontWeight.w400)),
                   Text(news.publishedAt ?? '',
                       style: TextStyle(
-                          color: Color(0xFF480903),
+                          color: Color(0xFF5cb6bd),
                           fontSize: 13,
                           fontWeight: FontWeight.w400)),
-                  Text(
-                    news.title ?? '',
-                    style: TextStyle(
-                        color: Color(0xFF79828B),
-                        fontSize: 15,
-                        fontWeight: FontWeight.w400),
-                  ),
                 ],
               ),
             ],

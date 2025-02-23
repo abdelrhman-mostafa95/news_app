@@ -10,11 +10,11 @@ class HomeDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Color(0xFF480903),
+      backgroundColor: Color(0xFF5cb6bd),
       child: Column(
         children: [
           Container(
-            color: Color(0xFF480903),
+            color: Color(0xFF5cb6bd),
             width: double.infinity,
             height: 110,
             alignment: Alignment.center,

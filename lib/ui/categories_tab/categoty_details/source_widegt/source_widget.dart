@@ -14,14 +14,14 @@ class SourceWidget extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(18),
-          border: Border.all(width: 2, color: Color(0xFF480903)),
-          color: isSelected ? Color(0xFF480903) : Colors.white),
+          border: Border.all(width: 2, color: Color(0xFF5cb6bd)),
+          color: isSelected ? Color(0xFF5cb6bd) : Colors.black),
       child: Text(
         source.name ?? '',
         style: TextStyle(
             fontWeight: FontWeight.w400,
             fontSize: 15,
-            color: isSelected ? Colors.white : Color(0xFF480903)),
+            color: isSelected ? Colors.white : Color(0xFF5cb6bd)),
       ),
     );
   }

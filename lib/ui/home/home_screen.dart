@@ -19,11 +19,11 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: Colors.black,
+          color: Colors.transparent,
           image: DecorationImage(
               image: AssetImage(ImagePath.GetImagePath('pattern.png')))),
       child: Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.transparent,
         appBar: AppBar(
           title: Text('News App'),
           actions: [
