@@ -10,10 +10,11 @@ class HomeDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      backgroundColor: Color(0xFF480903),
       child: Column(
         children: [
           Container(
-            color: Colors.green,
+            color: Color(0xFF480903),
             width: double.infinity,
             height: 110,
             alignment: Alignment.center,
@@ -22,42 +23,55 @@ class HomeDrawer extends StatelessWidget {
               style: TextStyle(color: Colors.white, fontSize: 20),
             ),
           ),
+          SizedBox(
+            height: 12,
+          ),
           InkWell(
             onTap: () {
               onMenuClickedTab(MenuItem.category);
             },
             child: Row(
               children: [
-                Icon(Icons.list),
+                Icon(
+                  Icons.list,
+                  color: Colors.white,
+                  size: 35,
+                ),
                 SizedBox(
                   width: 4,
                 ),
                 Text('Categories',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20))
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                        color: Colors.white))
               ],
             ),
           ),
-          InkWell(
-            onTap: () {
-              onMenuClickedTab(MenuItem.settings);
-            },
-            child: Row(
-              children: [
-                Icon(Icons.settings),
-                SizedBox(
-                  width: 4,
-                ),
-                Text(
-                  'Settings',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                )
-              ],
-            ),
+          SizedBox(
+            height: 12,
           ),
+          // InkWell(
+          //   onTap: () {
+          //     onMenuClickedTab(MenuItem.settings);
+          //   },
+          //   child: Row(
+          //     children: [
+          //       Icon(Icons.search_off, color: Colors.white,size: 35),
+          //       SizedBox(
+          //         width: 4,
+          //       ),
+          //       Text(
+          //         'Search',
+          //         style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.white, ),
+          //       )
+          //     ],
+          //   ),
+          // ),
         ],
       ),
     );
   }
 }
 
-enum MenuItem { category, settings }
+enum MenuItem { category }
