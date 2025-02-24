@@ -19,9 +19,10 @@ class CategoryWidget extends StatelessWidget {
       ),
       child: Text(
         catItem.title ?? '',
-        style: TextStyle(
+        style: const TextStyle(
           fontWeight: FontWeight.w400,
           fontSize: 15,
+          color: Colors.white
         ),
       ),
     );

@@ -21,11 +21,11 @@ class NewsApp extends StatelessWidget {
       theme: AppTheme.appTheme,
       debugShowCheckedModeBanner: false,
       routes: {
-        SplashScreen.routeName: (_) => SplashScreen(),
+        // SplashScreen.routeName: (_) => SplashScreen(),
         HomeScreen.routeName: (_) => HomeScreen(),
         NewsContent.routeName: (_) => NewsContent()
       },
-      initialRoute: SplashScreen.routeName,
+      initialRoute: HomeScreen.routeName,
     );
   }
 }

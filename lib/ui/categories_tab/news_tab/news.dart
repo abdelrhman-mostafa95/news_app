@@ -10,6 +10,7 @@ class NewsContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     news ??= ModalRoute.of(context)?.settings.arguments as Articles;
+    DateTime? newsDate = DateTime.tryParse(news!.publishedAt ?? "");
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
@@ -39,7 +40,7 @@ class NewsContent extends StatelessWidget {
             ),
             if (news?.publishedAt != null)
               Text(
-                news!.publishedAt!,
+                timeago.format(newsDate!),
                 style: TextStyle(color: Colors.white),
               ),
             SizedBox(
@@ -55,7 +56,8 @@ class NewsContent extends StatelessWidget {
             InkWell(
               onTap: () async {
                 Uri uri = Uri.parse(news!.url ?? '');
-                if (await canLaunchUrl(uri)) launchUrl(uri);
+                print(news!.url ??'');
+                if (await canLaunchUrl(uri)) launchUrl(uri, mode: LaunchMode.externalApplication);
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,

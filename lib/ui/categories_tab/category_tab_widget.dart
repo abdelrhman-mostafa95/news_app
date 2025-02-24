@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:news_app_cruze/api_manager/api_manager.dart';
+import 'package:news_app_cruze/api_manager/news_model/Articles.dart';
 import 'package:news_app_cruze/ui/categories_tab/category_data/category_item.dart';
 import 'package:news_app_cruze/ui/categories_tab/category_widegts/category_widget.dart';
+import 'package:news_app_cruze/ui/categories_tab/news_tab/news_item_widegt.dart';
 
 typedef ClickedCategory = void Function(CategoryItem allCategories);
 
 class CategoryTabWidget extends StatelessWidget {
   List<CategoryItem> allCategories = CategoryItem.getCategoryList();
   ClickedCategory clickedCategory;
-
   CategoryTabWidget({required this.clickedCategory});
 
   @override
@@ -22,7 +24,7 @@ class CategoryTabWidget extends StatelessWidget {
             style: TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.w700,
-                color: Colors.white60),
+                color: Colors.white),
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.1,
@@ -37,6 +39,23 @@ class CategoryTabWidget extends StatelessWidget {
               itemCount: allCategories.length,
             ),
           ),
+          Expanded(
+            child: FutureBuilder(future: ApiManager.getHomeNews(), builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return CircularProgressIndicator();
+              }
+              if (snapshot.hasError) {
+                print(snapshot.error);
+                return Text('oops! something went wrong');
+              }
+              return ListView.builder(itemBuilder:(context, index) {
+                Articles news = (snapshot.data?.articles ?? [])[index];
+                return NewsItemWidegt(news: news);
+              },
+              itemCount: 5,
+              );
+            },),
+          )
         ],
       ),
     );

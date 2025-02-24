@@ -57,11 +57,17 @@ class SearchScreen extends SearchDelegate {
   @override
   ThemeData appBarTheme(BuildContext context) {
     return Theme.of(context).copyWith(
+      textTheme: TextTheme(titleMedium: TextStyle(color: Colors.white)),
         scaffoldBackgroundColor: Colors.black,
+        focusColor: Colors.white,
         inputDecorationTheme: InputDecorationTheme(
           hintStyle: TextStyle(color: Colors.white),
           border: InputBorder.none,
-          fillColor: Colors.white,
-        ));
+          focusColor: Colors.white,
+        ),
+    textSelectionTheme: TextSelectionThemeData(
+    cursorColor: Colors.white,
+    )
+    );
   }
 }
