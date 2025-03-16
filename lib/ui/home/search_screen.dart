@@ -40,13 +40,13 @@ class SearchScreen extends SearchDelegate {
           );
         }
         List<Articles> news = snapshot.data?.articles ?? [];
+        print(snapshot.data?.articles ?? []);
         return ListView.builder(
           itemBuilder: (context, index) => NewsItemWidegt(news: news[index]),
           itemCount: news.length,
         );
       },
     );
-    ;
   }
 
   @override
